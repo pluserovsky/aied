@@ -40,22 +40,3 @@ model.fit(X_train, y_train, epochs=10, batch_size=32)
 test_loss, test_acc = model.evaluate(X_test, y_test)
 print('Test accuracy:', test_acc)
 print('Test loss:', test_loss)
-
-from sklearn.svm import SVC
-from sklearn import metrics
-svc=SVC() #Default hyperparameters
-svc.fit(X_train,y_train)
-y_pred=svc.predict(X_test)
-print('Accuracy Score:')
-print(metrics.accuracy_score(y_test,y_pred))
-
-
-clf = MLPClassifier(hidden_layer_sizes=(100,100,100), max_iter=50, alpha=0.0001,
-                     solver='sgd', verbose=10,  random_state=21,tol=0.000000001)
-clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-print(accuracy_score(y_test, y_pred))
-cm = confusion_matrix(y_test, y_pred)
-cm
-sns.heatmap(cm, center=True)
-plt.show()
